@@ -13,14 +13,14 @@
     ],
     "autoload": {
         "psr-0": {
-            "Validate_ISPN": "./"
+            "Validate": "./"
         }
     },
     "description": "More info available on: http://pear.php.net/package/Validate_ISPN",
     "include-path": [
         "./"
     ],
-    "license": "New BSD",
+    "license": "BSD-2-Clause",
     "name": "pear/validate_ispn",
     "support": {
         "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Validate_ISPN",
@@ -28,7 +28,7 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "pear/validate": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
