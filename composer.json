@@ -1,0 +1,36 @@
+{
+    "authors": [
+        {
+            "email": "dufuz@php.net",
+            "name": "Helgi \u00deormar",
+            "role": "Lead"
+        },
+        {
+            "email": "makler@man.torun.pl",
+            "name": "Piotr Klaban",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Validate_ISPN": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Validate_ISPN",
+    "include-path": [
+        "./"
+    ],
+    "license": "New BSD",
+    "name": "pear/validate_ispn",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Validate_ISPN",
+        "source": "https://github.com/pear/Validate_ISPN"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
