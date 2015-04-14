@@ -141,7 +141,7 @@ class Validate_ISPN
 
         // Requires base class Validate
         require_once 'Validate.php';
-        return Validate::_checkControlNumber($isbn, $weights_isbn, 11, 11);
+        return (new Validate)->_checkControlNumber($isbn, $weights_isbn, 11, 11);
     }
 
 
@@ -172,7 +172,7 @@ class Validate_ISPN
 
         // Requires base class Validate
         require_once 'Validate.php';
-        return Validate::_checkControlNumber($issn, $weights_issn, 11, 11);
+        return (new Validate)->_checkControlNumber($issn, $weights_issn, 11, 11);
     }
 
     /**
@@ -212,7 +212,7 @@ class Validate_ISPN
 
         // Requires base class Validate
         require_once 'Validate.php';
-        return Validate::_checkControlNumber($ismn, $weights_ismn, 10, 10);
+        return (new Validate)->_checkControlNumber($ismn, $weights_ismn, 10, 10);
     }
 
     /**
@@ -349,7 +349,7 @@ class Validate_ISPN
      * @param array $weights holds the weight that will be used in calculations for the validation
      * @return bool    true if number is valid, otherwise false
      * @access public
-     * @see Validate::_checkControlNumber()
+     * @see (new Validate)->_checkControlNumber()
      */
     function process($data, $length, &$weights, $modulo = 10, $subtract = 0)
     {
@@ -362,6 +362,6 @@ class Validate_ISPN
 
         // Requires base class Validate
         require_once 'Validate.php';
-        return Validate::_checkControlNumber($data, $weights, $modulo, $subtract);
+        return (new Validate)->_checkControlNumber($data, $weights, $modulo, $subtract);
     }
 }
