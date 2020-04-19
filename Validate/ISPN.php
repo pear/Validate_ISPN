@@ -198,12 +198,12 @@ class Validate_ISPN
         $ismn = strtoupper($ismn);
         $ismn = str_replace(array('ISMN', '-', '/', ' ', "\t", "\n"), '', $ismn);
         // First char has to be M (after ISMN has been stripped if present)
-        if ($ismn{0} != 'M') {
+        if ($ismn[0] != 'M') {
             return false;
         }
 
         // change M to 3
-        $ismn{0} = 3;
+        $ismn[0] = 3;
 
         // check if this is a 10-digit number
         if (!is_numeric($ismn) || strlen($ismn) != 10) {
