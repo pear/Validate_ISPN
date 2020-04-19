@@ -22,27 +22,28 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <name>Helgi Þormar</name>
   <user>dufuz</user>
   <email>dufuz@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <lead>
   <name>Piotr Klaban</name>
   <user>makler</user>
   <email>makler@man.torun.pl</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
- <date>2007-03-27</date>
- <time>22:39:29</time>
+ <date>2020-04-19</date>
  <version>
-  <release>0.6.1</release>
-  <api>0.6.1</api>
+  <release>0.7.0</release>
+  <api>0.7.0</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
  <license>New BSD</license>
- <notes>- Fixed Bug #7607 - isbn13 now works properly in isbn() function. (Pitor)
-
+ <notes>
+* PR #4: Change braces to brackets for PHP 7.3 compatibility
+* PR #2: Fix 19668
+* PR #1: add composer
  </notes>
  <contents>
   <dir name="/">
@@ -72,6 +73,24 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </dependencies>
  <phprelease />
  <changelog>
+
+  <release>
+   <version>
+    <release>0.7.0</release>
+    <api>0.7.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2020-04-19</date>
+   <license>New BSD</license>
+   <notes>
+* PR #4: Change braces to brackets for PHP 7.3 compatibility
+* PR #2: Fix 19668
+* PR #1: add composer
+   </notes>
+  </release>
 
   <release>
    <version>
