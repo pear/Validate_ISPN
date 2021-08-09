@@ -30,6 +30,7 @@
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/Validate_ISPN
  */
+require_once 'Validate.php';
 
 /**
  * Data validation class for International Standard Product Numbers (ISPN)
@@ -56,9 +57,9 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Validate_ISPN
  */
-class Validate_ISPN
+class Validate_ISPN extends Validate
 {
-    function isbn($isbn)
+    public static function isbn($isbn)
     {
         if (preg_match("/[^0-9 IXSBN-]/", $isbn)) {
             return false;
@@ -91,7 +92,7 @@ class Validate_ISPN
      * @author Helgi Þormar Þorbjörnsson <dufuz@php.net>
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function isbn13($isbn)
+    public static function isbn13($isbn)
     {
         if (preg_match("/[^0-9 ISBN-]/", $isbn)) {
             return false;
@@ -121,7 +122,7 @@ class Validate_ISPN
      * @author Damien Seguy <dams@nexen.net>
      * @author Helgi Þormar Þorbjörnsson <dufuz@php.net>
      */
-    function isbn10($isbn)
+    public static function isbn10($isbn)
     {
         static  $weights_isbn = array(10,9,8,7,6,5,4,3,2);
 
@@ -139,9 +140,8 @@ class Validate_ISPN
             return false;
         }
 
-        // Requires base class Validate
-        require_once 'Validate.php';
-        return (new Validate)->_checkControlNumber($isbn, $weights_isbn, 11, 11);
+        // Inherits from base class Validate
+        return self::_checkControlNumber($isbn, $weights_isbn, 11, 11);
     }
 
 
@@ -157,7 +157,7 @@ class Validate_ISPN
      * @access public
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function issn($issn)
+    public static function issn($issn)
     {
         static $weights_issn = array(8,7,6,5,4,3,2);
 
@@ -170,9 +170,8 @@ class Validate_ISPN
             return false;
         }
 
-        // Requires base class Validate
-        require_once 'Validate.php';
-        return (new Validate)->_checkControlNumber($issn, $weights_issn, 11, 11);
+        // Inherits from base class Validate
+        return self::_checkControlNumber($issn, $weights_issn, 11, 11);
     }
 
     /**
@@ -191,7 +190,7 @@ class Validate_ISPN
      * @access public
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function ismn($ismn)
+    public static function ismn($ismn)
     {
         static $weights_ismn = array(3,1,3,1,3,1,3,1,3);
 
@@ -210,9 +209,8 @@ class Validate_ISPN
             return false;
         }
 
-        // Requires base class Validate
-        require_once 'Validate.php';
-        return (new Validate)->_checkControlNumber($ismn, $weights_ismn, 10, 10);
+        // Inherits from base class Validate
+        return self::_checkControlNumber($ismn, $weights_ismn, 10, 10);
     }
 
     /**
@@ -228,7 +226,7 @@ class Validate_ISPN
      * @access public
      * @author David Grant <david@grant.org.uk>
      */
-    function isrc($isrc)
+    public static function isrc($isrc)
     {
         $isrc = str_replace(array('ISRC', '-', ' '), '', strtoupper($isrc));
         if (!preg_match("/[A-Z]{2}[A-Z0-9]{3}[0-9]{7}/", $isrc)) {
@@ -252,7 +250,7 @@ class Validate_ISPN
      * @see Validate_ISPN::process()
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function ean8($ean)
+    public static function ean8($ean)
     {
         static $weights_ean8 = array(3,1,3,1,3,1,3);
         return Validate_ISPN::process($ean, 8, $weights_ean8, 10, 10);
@@ -272,7 +270,7 @@ class Validate_ISPN
      * @see Validate_ISPN::process()
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function ean13($ean)
+    public static function ean13($ean)
     {
         static $weights_ean13 = array(1,3,1,3,1,3,1,3,1,3,1,3);
         return Validate_ISPN::process($ean, 13, $weights_ean13, 10, 10);
@@ -292,7 +290,7 @@ class Validate_ISPN
      * @see Validate_ISPN::process()
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function ean14($ean)
+    public static function ean14($ean)
     {
         static $weights_ean14 = array(3,1,3,1,3,1,3,1,3,1,3,1,3);
         return Validate_ISPN::process($ean, 14, $weights_ean14, 10, 10);
@@ -312,7 +310,7 @@ class Validate_ISPN
      * @see Validate_ISPN::process()
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function ucc12($ucc)
+    public static function ucc12($ucc)
     {
         static $weights_ucc12 = array(3,1,3,1,3,1,3,1,3,1,3);
         return Validate_ISPN::process($ucc, 12, $weights_ucc12, 10, 10);
@@ -332,7 +330,7 @@ class Validate_ISPN
      * @see Validate_ISPN::process()
      * @author Piotr Klaban <makler@man.torun.pl>
      */
-    function sscc($sscc)
+    public static function sscc($sscc)
     {
         static $weights_sscc = array(3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3);
         return Validate_ISPN::process($sscc, 18, $weights_sscc, 10, 10);
@@ -351,7 +349,7 @@ class Validate_ISPN
      * @access public
      * @see (new Validate)->_checkControlNumber()
      */
-    function process($data, $length, &$weights, $modulo = 10, $subtract = 0)
+    public static function process($data, $length, &$weights, $modulo = 10, $subtract = 0)
     {
         $data = str_replace(array('-', '/', ' ', "\t", "\n"), '', $data);
 
@@ -360,8 +358,7 @@ class Validate_ISPN
             return false;
         }
 
-        // Requires base class Validate
-        require_once 'Validate.php';
-        return (new Validate)->_checkControlNumber($data, $weights, $modulo, $subtract);
+        // Inherits from base class Validate
+        return self::_checkControlNumber($data, $weights, $modulo, $subtract);
     }
 }
