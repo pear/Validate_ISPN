@@ -30,10 +30,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>makler@man.torun.pl</email>
   <active>no</active>
  </lead>
- <date>2020-04-19</date>
+ <date>2021-08-10</date>
  <version>
-  <release>0.7.0</release>
-  <api>0.7.0</api>
+  <release>0.8.0</release>
+  <api>0.8.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -41,9 +41,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </stability>
  <license>New BSD</license>
  <notes>
-* PR #4: Change braces to brackets for PHP 7.3 compatibility
-* PR #2: Fix 19668
-* PR #1: add composer
+* PR #5: Fix PHP 8 compatibility
  </notes>
  <contents>
   <dir name="/">
